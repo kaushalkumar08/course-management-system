@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3800/api';
+const API_URL = 'https://course-management-system-556e.onrender.com/';
 let authToken = localStorage.getItem('token') || '';
 let currentUser = JSON.parse(localStorage.getItem('user') || 'null');
 let isRegisterMode = false;
