@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Hub | Online Learning Platform</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">🎓 CourseHub</div>
+    <div id="navRight">
+      <span id="userBadge" class="user-badge" style="display:none;"></span>
+      <button id="authBtn" onclick="toggleAuthModal()">Login / Register</button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- Controls Bar -->
+    <div class="controls-bar">
+      <input type="text" id="searchInput" placeholder="Search courses by title or keyword..." oninput="fetchCourses()">
+      <select id="categoryFilter" onchange="fetchCourses()">
+        <option value="">All Categories</option>
+        <option value="Web Development">Web Development</option>
+        <option value="Data Science">Data Science</option>
+        <option value="Backend Engineering">Backend Engineering</option>
+      </select>
+      <button id="adminCreateBtn" class="admin-only" style="display:none;" onclick="openCreateCourseModal()">+ Create Course</button>
+    </div>
+
+    <!-- Student My Learning Section -->
+    <section id="myLearningSection" style="display:none;" class="dashboard-section">
+      <h2>My Enrolled Courses & Progress</h2>
+      <div id="myCoursesGrid" class="courses-grid"></div>
+    </section>
+
+    <!-- Course Catalog -->
+    <section class="dashboard-section">
+      <h2>Available Course Catalog</h2>
+      <div id="catalogGrid" class="courses-grid"></div>
+    </section>
+  </main>
+
+  <!-- Auth Modal -->
+  <div id="authModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="toggleAuthModal()">&times;</span>
+      <h3 id="modalTitle">Account Access</h3>
+      <form id="authForm" onsubmit="handleAuthSubmit(event)">
+        <input type="text" id="authName" placeholder="Full Name (for registration)">
+        <input type="email" id="authEmail" placeholder="Email Address" required>
+        <input type="password" id="authPassword" placeholder="Password" required>
+        <select id="authRole">
+          <option value="student">Student Account</option>
+          <option value="admin">Admin / Instructor Account</option>
+        </select>
+        <button type="submit" id="submitAuthBtn">Login</button>
+        <p class="toggle-text" onclick="toggleAuthMode()">Switch between Login and Register</p>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
