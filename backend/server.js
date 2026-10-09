@@ -147,7 +147,8 @@ app.patch('/api/enrollments/:courseId/progress', auth, async (req, res) => {
     res.status(500).json({ success: false, error: 'Failed to update progress.' });
   }
 });
-
+// backend/server.js
+require('dotenv').config({ override: false });
 const PORT = process.env.PORT || 3800;
 mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/course_system')
   .then(() => app.listen(PORT, () => console.log(`Course System Backend running on port ${PORT}`)))
