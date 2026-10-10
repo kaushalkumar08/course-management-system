@@ -42,6 +42,7 @@ online-course-system/
     ├── app.js               # Frontend state management & API interaction
     ├── index.html           # Main dashboard layout
     └── style.css            # Custom CSS styling
+    
 ⚡ Local Setup Guide
 1. Prerequisites
 Node.js (v18+)
